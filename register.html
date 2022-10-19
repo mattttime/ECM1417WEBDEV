@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<style>
+    #navbar{
+        font-family:Arial;
+        font-weight:bold;
+        font-size:12px;
+		font-color:black;
+        background-color:blue;
+        list-style-type:none;
+        margin:0;
+        padding:0;
+        padding-top:25px;
+    }
+	#navbar a{
+		font-family:Arial;
+        font-weight:bold;
+        font-size:12px;
+		color:black;
+		text-decoration: none;
+	}
+    .left{
+        align:left;
+    }
+    .right{
+        align:right;
+		float:right;
+    }
+	.center{
+		vertical-align:middle;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 95%;
+	}
+    #navbar a:hover{
+        background-color:green;
+    }
+	main{
+		background-color:#45433f;
+	}
+    #register a{
+        text-decoration:none;
+
+    }
+</style>
+<script type = "text/javascript">
+            function hide (elements) {
+                elements = elements.length ? elements : [elements];
+                for (var index = 0; index < elements.length; index++) {
+                    elements[index].style.display = 'none';
+                }
+            }
+            function show (elements) {
+                elements = elements.length ? elements : [elements];
+                for (var index = 0; index < elements.length; index++) {
+                    elements[index].style.display ='block';
+                }
+            }
+            function checkPassword(form) {
+			print("checkpassword");
+                password1 = form.password1.value;
+                password2 = form.password2.value;
+  
+                // If password not entered
+                if (password1 == '')
+                    alert ("Please enter Password");
+                      
+                // If confirm password not entered
+                else if (password2 == '')
+                    alert ("Please enter confirm password");
+                      
+                // If Not same return False.    
+                else if (password1 != password2) {
+                    alert ("Password did not match: Please try again")
+                    return false;
+                }
+  
+                // If same return True.
+                else{
+                    return true;
+                }
+            }      
+</script>
+</head>
+<body>
+
+<div id="navbar">
+    <a name="home" class="left" href="index.php" >Home</a>
+    <a name="tetris" class="right" href="tetris.php" >Play Tetris</a>
+    <a name="leaderboard" class="right" style="text-align:center;" href="leaderboard.php">Leaderboard</a>
+</div>
+<div id="main">
+    <img src="tetris.png" class="center" >
+    <div id="login">
+        <form id="createUserForm" onSubmit="checkPassword(this)">
+            <label for="username">Enter Username</label><br>
+            <input type="text" name="username"><br>
+            <label for="password">Enter Password</label><br>
+            <input type="password" name="password"><br>
+            <label for="confirm">Confirm Password</label><br>
+            <input type="password" name="confirm"><br>
+            <input type="submit" name="Submit"><br>
+        </form>
+    </div>
+</div>
+</body>
+</html>
